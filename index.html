@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<main>
+  <h1>Bienvenido a VARIEDADES FALBAS</h1>
+  <p>Tu tienda favorita con productos únicos.</p>
+</main>
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VARIEDADES FALBAS</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <style>
+    /* Estilos para el modo mantenimiento */
+    #mantenimiento {
+      display: none;
+      padding: 60px 20px;
+      text-align: center;
+      background-color: #fffbe6;
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 2000;
+      overflow: auto;
+    }
+    #btnModoMantenimiento {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 3000;
+      background-color: #ff9800;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    #contenido.oculto {
+      display: none;
+    }
+
+    /* Estilos para el formulario de suscripción */
+    #suscripcion {
+      background-color: #f9f9f9;
+      padding: 30px 20px;
+      margin: 30px auto;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    #suscripcion h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    #formSuscripcion input[type="email"] {
+      width: 80%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+    #formSuscripcion input[type="email"]:focus {
+      border-color: #ff9800;
+      outline: none;
+    }
+    #formSuscripcion button {
+      background-color: #ff9800;
+      border: none;
+      padding: 12px 25px;
+      color: white;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    #formSuscripcion button:hover {
+      background-color: #e88c00;
+    }
+    .mensaje {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: green;
+    }
+    .mensaje.error {
+      color: red;
+    }
+
+    /* Estilos generales ya existentes */
+    .grid-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .galeria-img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .producto {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+    }
+    .producto img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .precio {
+      font-weight: bold;
+      color: #ff9800;
+    }
+    #btnSubir {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background-color: #ff9800;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      display: none;
+      z-index: 3000;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="contenido">
+    <header>
+      <h1>Bienvenido a Mi Página Web</h1>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">VARIEDADES FALBAS</a>
+        <a href="#galeria">Galería</a>
+        <a href="#productos">Productos</a>
+        <a href="#suscripcion">Suscripción</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <section id="inicio">
+      <h2>Inicio</h2>
+      <p>Hola con todos, sean bienvenidos a VARIEDADES FALBAS.</p>
+    </section>
+
+    <section id="sobre-mi">
+      <h2>Sobre Mí</h2>
+      <p>Ven y conoce todos nuestros artículo que tenemos en stock.</p>
+    </section>
+
+    <section id="galeria">
+      <h2>Galería</h2>
+      <div class="grid-galeria">
+        <img src="https://picsum.photos/id/1015/300/200" alt="Imagen 1" class="galeria-img" />
+        <img src="https://picsum.photos/id/1016/300/200" alt="Imagen 2" class="galeria-img" />
+        <img src="https://picsum.photos/id/1020/300/200" alt="Imagen 3" class="galeria-img" />
+        <img src="https://picsum.photos/id/1024/300/200" alt="Imagen 4" class="galeria-img" />
+        <img src="https://picsum.photos/id/1035/300/200" alt="Imagen 5" class="galeria-img" />
+        <img src="https://picsum.photos/id/1039/300/200" alt="Imagen 6" class="galeria-img" />
+      </div>
+    </section>
+
+    <section id="productos">
+      <h2>Productos en venta</h2>
+
+      <div class="producto" data-id="1" data-nombre="Eco-Helado de Maracuyá" data-precio="2.5">
+        <img src="img/producto1.jpg" alt="Eco-Helado de Maracuyá">
+        <h3>Eco-Helado de Maracuyá</h3>
+        <p>Delicioso helado artesanal hecho en Tena, Ecuador.</p>
+        <p class="precio">$2.50</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+
+      <div class="producto" data-id="2" data-nombre="Eco-Helado de Cacao" data-precio="2.5">
+        <img src="img/producto2.jpg" alt="Eco-Helado de Cacao">
+        <h3>Eco-Helado de Cacao</h3>
+        <p>100% natural, sin conservantes.</p>
+        <p class="precio">$2.50</p>
+        <button class="btn-agregar">Agregar al carrito</button>
+      </div>
+    </section>
+
+    <!-- NUEVA SECCIÓN SUSCRIPCIÓN -->
+    <section id="suscripcion">
+      <h2>Suscríbete a nuestras promociones</h2>
+      <form id="formSuscripcion" action="https://formspree.io/f/mblyolbn" method="POST" novalidate>
+        <input type="email" name="email" placeholder="Tu correo electrónico" required />
+        <button type="submit">Suscribirse</button>
+      </form>
+      <p id="mensaje" class="mensaje"></p>
+    </section>
+
+    <section id="carrito">
+      <h2>Tu carrito</h2>
+      <ul id="lista-carrito"></ul>
+      <p>Total: $<span id="total">0.00</span></p>
+      <button id="btn-comprar" disabled>Comprar por WhatsApp</button>
+    </section>
+
+    <section id="contacto">
+      <h2>Contáctame</h2>
+      <form action="https://formspree.io/f/mblyolbn" method="POST">
+        <label for="nombre">Nombre:</label><br />
+        <input type="text" name="nombre" required /><br />
+
+        <label for="email">Correo electrónico:</label><br />
+        <input type="email" name="email" required /><br />
+
+        <label for="mensaje">Mensaje:</label><br />
+        <textarea name="mensaje" rows="4" required></textarea><br />
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2025 Mi Sitio Web | alejoalsangucho@gmail.com</p>
+    </footer>
+
+    <!-- Botón para subir -->
+    <button id="btnSubir" title="Volver arriba">⬆️</button>
+  </div>
+
+  <!-- Sección de mantenimiento -->
+  <section id="mantenimiento" aria-hidden="true">
+    <h2 style="font-size: 2rem; color: #ff9800;">🚧 Página en mantenimiento</h2>
+    <p style="font-size: 1.1rem; margin-top: 15px; color: #444;">
+      Estamos trabajando para mejorar tu experiencia. Vuelve más tarde 😊
+    </p>
+    <img src="https://cdn-icons-png.flaticon.com/512/2991/2991108.png" alt="Herramienta" style="margin-top: 20px; max-width: 150px;">
+  </section>
+
+  <!-- Botón para activar/desactivar mantenimiento -->
+  <button id="btnModoMantenimiento" title="Modo mantenimiento">🔧</button>
+
+  <!-- Scripts -->
+  <script>
+    // Funcionalidad carrito (igual que antes)
+    const botonesAgregar = document.querySelectorAll('.btn-agregar');
+    const listaCarrito = document.getElementById('lista-carrito');
+    const totalSpan = document.getElementById('total');
+    const btnComprar = document.getElementById('btn-comprar');
+    let carrito = [];
+
+    botonesAgregar.forEach(boton => {
+      boton.addEventListener('click', () => {
+        const producto = boton.parentElement;
+        const id = producto.getAttribute('data-id');
+        const nombre = producto.getAttribute('data-nombre');
+        const precio = parseFloat(producto.getAttribute('data-precio'));
+        const productoEnCarrito = carrito.find(item => item.id === id);
+        if (productoEnCarrito) {
+          productoEnCarrito.cantidad++;
+        } else {
+          carrito.push({ id, nombre, precio, cantidad: 1 });
+        }
+        actualizarCarrito();
+      });
+    });
+
+    function actualizarCarrito() {
+      listaCarrito.innerHTML = '';
+      let total = 0;
+      carrito.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} x${item.cantidad} - $${(item.precio * item.cantidad).toFixed(2)}`;
+        listaCarrito.appendChild(li);
+        total += item.precio * item.cantidad;
+      });
+      totalSpan.textContent = total.toFixed(2);
+      btnComprar.disabled = carrito.length === 0;
+    }
+
+    btnComprar.addEventListener('click', () => {
+      if (carrito.length === 0) return;
+      let mensaje = "Hola, quiero comprar:%0A";
+      carrito.forEach(item => {
+        mensaje += `- ${item.nombre} x${item.cantidad}%0A`;
+      });
+      mensaje += `Total: $${totalSpan.textContent}`;
+      const numeroWhatsApp = "593982183115";
+      const url = `https://wa.me/${numeroWhatsApp}?text=${mensaje}`;
+      window.open(url, '_blank');
+    });
+
+
+    // Modo mantenimiento con contraseña
+    const btnModo = document.getElementById('btnModoMantenimiento');
+    const seccionMantenimiento = document.getElementById('mantenimiento');
+    const contenido = document.getElementById('contenido');
+
+    const PASSWORD = '1234';  // Cambia aquí tu contraseña
+
+    btnModo.addEventListener('click', () => {
+      const entrada = prompt('Ingrese la contraseña para activar/desactivar el modo mantenimiento:');
+      if (entrada === PASSWORD) {
+        if (seccionMantenimiento.style.display === 'block') {
+          seccionMantenimiento.style.display = 'none';
+          contenido.classList.remove('oculto');
+          seccionMantenimiento.setAttribute('aria-hidden', 'true');
+        } else {
+          seccionMantenimiento.style.display = 'block';
+          contenido.classList.add('oculto');
+          seccionMantenimiento.setAttribute('aria-hidden', 'false');
+          window.scrollTo(0, 0);
+        }
+      } else if (entrada !== null) {
+        alert('Contraseña incorrecta');
+      }
+    });
+
+    // Suscripción - validación y envío con fetch
+    const form = document.getElementById('formSuscripcion');
+    const mensaje = document.getElementById('mensaje');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = form.email.value.trim();
+
+      if (!email || !email.includes('@')) {
+        mensaje.textContent = 'Por favor ingresa un correo válido.';
+        mensaje.classList.add('error');
+        return;
+      }
+
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(response => {
+        if (response.ok) {
+          mensaje.textContent = '¡Gracias por suscribirte!';
+          mensaje.classList.remove('error');
+          form.reset();
+        } else {
+          mensaje.textContent = 'Error al enviar. Intenta de nuevo.';
+          mensaje.classList.add('error');
+        }
+      }).catch(() => {
+        mensaje.textContent = 'Error al enviar. Intenta de nuevo.';
+        mensaje.classList.add('error');
+      });
+    });
+
+    // Botón subir arriba
+    const btnSubir = document.getElementById('btnSubir');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        btnSubir.style.display = 'block';
+      } else {
+        btnSubir.style.display = 'none';
+      }
+    });
+    btnSubir.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
+<main>
+  <h1>Bienvenido a VARIEDADES FALBAS</h1>
+  <p>Tu tienda favorita con productos únicos.</p>
+
+  <!-- Aquí el enlace o botón -->
+  <a href="suscripcion.html" class="boton-suscripcion">Suscríbete a nuestro boletín</a>
+</main>
